@@ -5,10 +5,15 @@ from scrapy_selenium import SeleniumRequest
 import json
 import pymongo
 from pymongo import MongoClient
+import os
 
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
 
-cluster = "mongodb+srv://freddykk20:NBXkwlueiqfgfp2F@cluster0.zjvwmxw.mongodb.net/?retryWrites=true&w=majority"
-client = MongoClient(cluster)
+password = os.environ.get("MONGODB_PWD")
+
+connection_string = f"mongodb+srv://freddykk20:{password}@cluster0.zjvwmxw.mongodb.net/?retryWrites=true&w=majority"
+client = MongoClient(connection_string)
 database = client["carDatabase"]
 collection = database["cars"]
 
