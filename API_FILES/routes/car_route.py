@@ -33,11 +33,11 @@ async def update_car(id, car_item: CarModel):
 
 @car_route.delete('/')
 async def delete_car(id, car_item: CarModel):
-    return carsEntity(carDatabase.cars.find_one_and_delete({"_id": ObjectId(id)}))
+    return carEntity(carDatabase.cars.find_one_and_delete({"_id": ObjectId(id)}))
     # carDatabase.cars.find({"_id": ObjectId(id)})
 
 #GET by ID
 @car_route.get('/{id}')
 
-async def find_one_car(id ):
-    return carsEntity(carDatabase.cars.find_one({"_id": ObjectId(id)}))
+async def find_one_car(id):
+    return carEntity(carDatabase.cars.find_one({"_id": ObjectId(id)}))

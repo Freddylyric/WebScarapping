@@ -4,12 +4,6 @@ from fastapi import FastAPI
 import uvicorn
 from routes.car_route import car_route
 
-
-
-
-
-
-
 app = FastAPI()
 app.include_router(car_route)
 
